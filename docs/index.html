@@ -21,12 +21,16 @@
         const options = {
             authProvider,
         };
-
-        const client = Client.init(options);
+        try {
+            const client = Client.init(options);
         
-        let conversationMember = await client.api('/teams/ece6f0a1-7ca4-498b-be79-edf6c8fc4d82/members/ZWUwZjVhZTItOGJjNi00YWU1LTg0NjYtN2RhZWViYmZhMDYyIyM3Mzc2MWYwNi0yYWM5LTQ2OWMtOWYxMC0yNzlhOGNjMjY3Zjk=')
-        .get();
-        document.getElementById("log").append(conversationMember);
+            let conversationMember = await client.api('/teams/ece6f0a1-7ca4-498b-be79-edf6c8fc4d82/members/ZWUwZjVhZTItOGJjNi00YWU1LTg0NjYtN2RhZWViYmZhMDYyIyM3Mzc2MWYwNi0yYWM5LTQ2OWMtOWYxMC0yNzlhOGNjMjY3Zjk=')
+            .get();
+            document.getElementById("log").append(conversationMember);
+        } catch (error) {
+            document.getElementById("log").append(error);
+        }
+
     </script>
 </body>
 </html>
