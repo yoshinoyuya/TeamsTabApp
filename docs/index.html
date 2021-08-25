@@ -7,6 +7,15 @@
     <title>Document</title>
 </head>
 <body>
-    test
+    <input type="text" id="url">
+    <button id="btn">繊維</button>
+    <script>
+        document.getElementById("btn").onclick = function(){
+            var url = document.getElementById("url").value
+            if(url != ""){
+                window.location.href = document.getElementById("url")
+            }
+        }
+    </script>
 </body>
 </html>
