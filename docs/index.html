@@ -13,7 +13,6 @@
     <input type="text" id="url">
     <button id="btn">遷移</button>
     <div id="log"></div>
-    <div id="test"></div>
     <script>
         document.getElementById("btn").onclick = function(){
             var url = document.getElementById("url").value
@@ -22,7 +21,6 @@
             }
         }
         let logDev = document.getElementById("log");
-        let testDev = document.getElementById("test");
         let displayAry = (ary) => {
             for (key in ary) {
                 if (typeof (ary[key]) == "object") {
@@ -40,21 +38,20 @@
             //Microsoft Teams のユーザーコンテキストを取得
             microsoftTeams.getContext((context) => {
                 displayAry(context);
-                testDev.innerText = context.upn;
             });
         });
-        //const options = {
-        //    authProvider,
-        //};
-        try {
-            //const client = Client.init(options);
-        
-            //let conversationMember = await client.api('/teams/ece6f0a1-7ca4-498b-be79-edf6c8fc4d82/members/ZWUwZjVhZTItOGJjNi00YWU1LTg0NjYtN2RhZWViYmZhMDYyIyM3Mzc2MWYwNi0yYWM5LTQ2OWMtOWYxMC0yNzlhOGNjMjY3Zjk=')
-            //.get();
-            //document.getElementById("log").append(conversationMember);
-        } catch (error) {
-            document.getElementById("log").append(error);
-        }
+        // const options = {
+        //     authProvider,
+        // };
+        // try {
+        //     const client = Client.init(options);
+
+        //     let conversationMember = await client.api('/teams/ece6f0a1-7ca4-498b-be79-edf6c8fc4d82/members/ZWUwZjVhZTItOGJjNi00YWU1LTg0NjYtN2RhZWViYmZhMDYyIyM3Mzc2MWYwNi0yYWM5LTQ2OWMtOWYxMC0yNzlhOGNjMjY3Zjk=')
+        //         .get();
+        //     document.getElementById("log").append(conversationMember);
+        // } catch (error) {
+        //     document.getElementById("log").append(error);
+        // }
 
     </script>
 </body>
