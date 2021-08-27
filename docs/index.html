@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://statics.teams.microsoft.com/sdk/v1.5.2/js/MicrosoftTeams.min.js"
+    crossorigin="anonymous"></script>
     <title>Document</title>
 </head>
 <body>
@@ -18,12 +20,13 @@
                 window.location.href = url
             }
         }
+        let logDev = document.getElementById("log");
         let displayAry = (ary) => {
             for (key in ary) {
                 if (typeof (ary[key]) == "object") {
                     displayAry(ary[key])
                 } else {
-                    document.getElementById("log").append(`key : ${key}, value : ${ary[key]}<br>`);
+                    logDev.innerHTML = logDev.innerHTML +`key : ${key}, value : ${ary[key]}<br>`
                     console.log(`key : ${key}, value : ${ary[key]}`)
                 }
             }
