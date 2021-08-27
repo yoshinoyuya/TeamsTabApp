@@ -10,7 +10,7 @@
     <a href="privacy.html">pruvacy</a><a href="termsofuse.html">termsofuse</a>
     <input type="text" id="url">
     <button id="btn">繊維</button>
-    <div id="log">log</div>
+    <div id="log"></div>
     <script>
         document.getElementById("btn").onclick = function(){
             var url = document.getElementById("url").value
@@ -18,6 +18,25 @@
                 window.location.href = url
             }
         }
+        let displayAry = (ary) => {
+            for (key in ary) {
+                if (typeof (ary[key]) == "object") {
+                    displayAry(ary[key])
+                } else {
+                    document.getElementById("log").append(`key : ${key}, value : ${ary[key]}<br>`);
+                    console.log(`key : ${key}, value : ${ary[key]}`)
+                }
+            }
+        }
+        microsoftTeams.initialize();
+
+        //DOM がロードされてから
+        document.addEventListener('DOMContentLoaded', () => {
+            //Microsoft Teams のユーザーコンテキストを取得
+            microsoftTeams.getContext((context) => {
+                displayAry(context);
+            });
+        });
         //const options = {
         //    authProvider,
         //};
