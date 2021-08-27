@@ -11,8 +11,9 @@
 <body>
     <a href="privacy.html">pruvacy</a><a href="termsofuse.html">termsofuse</a>
     <input type="text" id="url">
-    <button id="btn">繊維</button>
+    <button id="btn">遷移</button>
     <div id="log"></div>
+    <div id="test"></div>
     <script>
         document.getElementById("btn").onclick = function(){
             var url = document.getElementById("url").value
@@ -21,6 +22,7 @@
             }
         }
         let logDev = document.getElementById("log");
+        let testDev = document.getElementById("test");
         let displayAry = (ary) => {
             for (key in ary) {
                 if (typeof (ary[key]) == "object") {
@@ -38,6 +40,7 @@
             //Microsoft Teams のユーザーコンテキストを取得
             microsoftTeams.getContext((context) => {
                 displayAry(context);
+                testDev.innerText = context.upn;
             });
         });
         //const options = {
